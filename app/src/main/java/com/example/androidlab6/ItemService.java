@@ -56,6 +56,7 @@ class ItemService {
         for(Item item :items) {
             if(item.getId() == updatedItem.getId()) {
                     items.set(items.indexOf(item), updatedItem);
+                    Cart.getInstance().updateItem(updatedItem);
             }
         }
         listeners.forEach(new Consumer<DataChangedListener>() {
